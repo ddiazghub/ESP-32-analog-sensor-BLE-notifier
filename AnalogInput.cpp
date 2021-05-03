@@ -16,9 +16,9 @@ int AnalogInput::read() {
 }
 
 float AnalogInput::voltage() {
-  return read() * (logicVoltage / pow(2, adcBits));
+  return read() * (logicVoltage / (pow(2, adcBits) - 1));
 }
 
 byte AnalogInput::percent() {
-  return (read() / pow(2, adcBits)) * 100;
+  return (read() / (pow(2, adcBits) - 1)) * 100;
 }
